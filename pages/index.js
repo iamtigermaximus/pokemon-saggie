@@ -15,30 +15,32 @@ export default function Home({ initialPokemon }) {
   }
 
   return (
-    <Layout title={'POKEMON'}>
-      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 '>
-        {pokemon.results.map((monster, index) => (
-          <Pokemon key={index} pokemon={monster} index={index + offset} />
-        ))}
-      </div>
+    <>
+      <Layout title={'HI, Im Pokemon Hunter SAGGIE!'}>
+        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 '>
+          {pokemon.results.map((monster, index) => (
+            <Pokemon key={index} pokemon={monster} index={index + offset} />
+          ))}
+        </div>
 
-      <div className='mt-10 flex justify-center gap-5'>
-        <button
-          disabled={!pokemon.previous}
-          className='disabled:bg-gray-500 px-3 py-1 bg-slate-900'
-          onClick={() => fetchPokemon(pokemon.previous, false)}
-        >
-          prev
-        </button>
-        <button
-          disabled={!pokemon.next}
-          className='disabled:bg-gray-500 px-3 py-1 bg-slate-900'
-          onClick={() => fetchPokemon(pokemon.next, true)}
-        >
-          next
-        </button>
-      </div>
-    </Layout>
+        <div className='mt-10 flex justify-center gap-5'>
+          <button
+            disabled={!pokemon.previous}
+            className='disabled:bg-gray-500 px-3 py-1 bg-slate-900'
+            onClick={() => fetchPokemon(pokemon.previous, false)}
+          >
+            prev
+          </button>
+          <button
+            disabled={!pokemon.next}
+            className='disabled:bg-gray-500 px-3 py-1 bg-slate-900'
+            onClick={() => fetchPokemon(pokemon.next, true)}
+          >
+            next
+          </button>
+        </div>
+      </Layout>
+    </>
   )
 }
 
